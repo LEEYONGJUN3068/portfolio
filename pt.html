@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Scroll Effect</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="../무제 폴더/pt.js"></script>
+</head>
+<body>
+    <div class="container">
+        <span id="experience-time"></span>
+        <div class="text-wrapper">            
+            <h1 class="text" id="text1">
+                <span id="experience-year"></span>동안 쌓아온 경험,
+            </h1>
+            <h1 class="text" id="text2">작은 디테일의 사용자 경험을 고민하며,</h1>
+            <h1 class="text" id="text3">완성도 높은 결과물을 만듭니다.</h1>
+        </div>
+
+        <div id="scroll-indicator">
+            <div class="arrow"></div>
+            <div class="arrow"></div>
+            <div class="arrow"></div>
+        </div>
+    </div>
+    
+    <section class="content">
+        <p>이제 일반적인 스크롤이 가능합니다.</p>
+    </section>
+</body>
+</html>
+
+<!--reset.css-->
+<style>
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+    body {
+        line-height: 1;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    blockquote, q {
+        quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+</style>
+<!--reset.css-->
+<!-- styles.css -->
+<style>
+    body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        background: #111;
+        color: #fff;
+        overflow-x: hidden;
+        text-align: center;
+    }
+    .container {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .text-wrapper {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 100%;
+    }
+    .text {
+        font-size: clamp(0px, 3.64vw, 70px);
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    #experience-time{
+        position: fixed;
+        left: 50%;
+        top: 49%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        opacity: 0.2;
+        font-size: clamp(0px, 3.64vw, 70px);
+    }
+    .content {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        background: #111;
+    }
+    #scroll-indicator {
+        position: fixed;
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 0.2vw;
+        opacity: 1;
+        transition: opacity 0.5s ease-out;
+        z-index: 9999;
+    }
+
+    .arrow {
+        width: 2vw;
+        max-width: 20px;
+        height: 2vw;
+        max-height: 20px;
+        border-left: clamp(0px, 0.5vw, 10px) solid white;
+        border-bottom: clamp(0px, 0.5vw, 10px) solid white;
+        transform: rotate(-45deg);
+        opacity: 0;
+    }
+
+    @keyframes fadeBounce {
+        0% {
+            opacity: 0;
+            transform: translateY(-0.5vw) rotate(-45deg);
+        }
+        50% {
+            opacity: 1;
+            transform: translateY(0) rotate(-45deg);
+        }
+        100% {
+            opacity: 0.5;
+            transform: translateY(0.5vw) rotate(-45deg);
+        }
+    }
+</style>
