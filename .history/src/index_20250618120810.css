@@ -1,0 +1,45 @@
+/* index.css (최종 점검 버전) */
+
+/* Tailwind CSS 지시어는 유지 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 모든 요소에 box-sizing: border-box 적용 (매우 중요!) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* html, body, #root 요소의 기본 마진/패딩 제거 및 뷰포트 100% 높이 확보 */
+html,
+body,
+#root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important; /* 뷰포트 높이 100%를 차지하도록 */
+  overflow-x: hidden !important; /* 가로 스크롤 강제 숨김 */
+  scroll-behavior: auto !important; /* GSAP과 충돌 방지 */
+}
+
+/* body에 불필요한 flex 속성 강제 제거 및 스크롤 컨테이너 역할 복원 */
+body {
+  display: block !important; /* body를 flex 컨테이너로 만드는 것을 강제 방지 */
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 320px; /* 유지 */
+  /* background-color는 각 섹션 컴포넌트에서 설정하는 것이 좋습니다. */
+}
+
+/* .page-sections-container 에 대한 스타일 초기화 */
+.page-sections-container {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+/* 여기 아래에 있는 모든 Vite 기본 템플릿의 스타일들 (.logo, .card, a, button, h1 등)은
+   모두 제거하고 각 컴포넌트 SCSS 파일로 옮기거나 Tailwind 클래스로 직접 적용해야 합니다. */

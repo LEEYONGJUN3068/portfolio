@@ -1,0 +1,118 @@
+/* index.css */
+
+/* Tailwind CSS 지시어 (유지) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 모든 요소에 box-sizing: border-box 적용 (매우 중요!) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* :root (html) 요소 기본 스타일 (Tailwind 기본값과 충돌하지 않도록 조정) */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  /* color와 background-color는 body나 각 섹션에서 관리하는 것이 더 좋습니다. */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #000; */ /* 제거 또는 주석 처리 */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* a 태그 스타일 (유지) */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* body 스타일 수정 (가장 중요!) */
+body {
+  margin: 0; /* 기본 마진 제거 (Tailwind base에도 있지만 명시적으로) */
+  padding: 0; /* 기본 패딩 제거 */
+  
+  /* !!! 여기를 수정합니다 !!! */
+  /* display: flex; */        /* 제거 - 스크롤을 방해하고 콘텐츠를 중앙 정렬하려 함 */
+  /* place-items: center; */  /* 제거 */
+  
+  min-width: 320px; /* 최소 너비 (유지) */
+  min-height: 100vh; /* 최소 높이 (유지) */
+  
+  /* body의 높이가 콘텐츠에 따라 자연스럽게 늘어나도록 함 */
+  /* overflow-x: hidden; 와 height: 100%는 html과 #root에만 있어도 충분 */
+}
+
+/* #root 스타일 수정 (Home.tsx의 .page-sections-container가 화면을 채우도록) */
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%; /* 뷰포트 높이 100%를 차지하도록 */
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+  /* Tailwind를 사용하면 max-width 등은 일반적으로 컨테이너 컴포넌트에 적용합니다. */
+}
+
+/* H1, button 등 나머지 스타일 (필요하다면 각 컴포넌트의 SCSS로 이동 권장) */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* .page-sections-container 와 .full-height-section 에 대한 스타일은
+    해당 SCSS 파일들 (예: App.scss, _common.scss)에 정의되어야 합니다.
+*/

@@ -1,0 +1,65 @@
+/* index.css */
+
+/* Tailwind CSS 지시어 (유지) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 모든 요소에 box-sizing: border-box 적용 (매우 중요!) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* 모든 요소의 마진/패딩/보더를 기본적으로 0으로 만듭니다. */
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+/* html, body, #root 요소의 기본 마진/패딩 제거 및 뷰포트 100% 높이 확보 */
+html,
+body,
+#root {
+  width: 100% !important;
+  height: 100% !important; /* 뷰포트 높이 100% 강제 */
+  overflow-x: hidden !important; /* 가로 스크롤 강제 숨김 */
+  scroll-behavior: auto !important; /* GSAP 스크롤 스냅과 충돌 가능성 있는 부드러운 스크롤 기본값 방지 */
+}
+
+/* body에 불필요한 flex 속성 강제 제거 및 스크롤 컨테이너 역할 복원 */
+body {
+  display: block !important; /* body가 flex 컨테이너가 되는 것을 강제 방지 */
+  min-width: 320px; /* 유지 */
+  /* 어떤 flex-gap이나 grid-gap도 적용되지 않도록 함 */
+  gap: 0 !important; 
+}
+
+/* #root에 대한 스타일도 엄격하게 초기화 */
+#root {
+  /* max-width, text-align 등 Vite 기본 스타일 제거했는지 재확인 */
+  /* flex 컨테이너로 동작하지 않도록 명시적 설정 */
+  display: block !important; 
+  gap: 0 !important;
+}
+
+/* .page-sections-container 에 대한 스타일 초기화 */
+/* 이 클래스는 Home.tsx의 최상위 div에 적용됩니다. */
+.page-sections-container {
+    width: 100%;
+    /* 내부 섹션들이 100vh이므로 min-height는 필요 없음 (자동으로 늘어남) */
+    /* 모든 마진/패딩/보더 제거는 '*' 셀렉터에서 이미 처리됨 */
+    gap: 0 !important; /* Tailwind grid/flex gap 방지 */
+}
+
+/* 폰트 설정 등 */
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgba(255, 255, 255, 0.87); /* 기본 텍스트 색상 */
+}
+
+/* !!! 모든 Vite 기본 스타일 제거: .logo, .card, a, button, h1 등 !!!
+   이 스타일들이 여백을 유발할 수 있습니다. 각 컴포넌트의 SCSS로 옮기세요.
+*/

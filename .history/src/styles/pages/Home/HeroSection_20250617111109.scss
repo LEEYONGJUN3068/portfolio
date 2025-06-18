@@ -1,0 +1,25 @@
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 300vh;
+  
+    .hero-content {
+      h1, p, .cta-btn {
+        visibility: hidden;  /* 화면 로드 전 아예 숨기기 */
+      }
+    }
+  
+    .scroll-arrow {
+      position: absolute;
+      bottom: 2rem;
+      font-size: 2rem;
+    }
+  }
+  .hero-section .hero-content > * {
+    visibility: hidden;
+  }
+    

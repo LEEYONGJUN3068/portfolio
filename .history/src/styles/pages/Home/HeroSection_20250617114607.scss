@@ -1,0 +1,30 @@
+// HeroSection.scss
+// ... (기존 hero-section 및 hero-background-svg 스타일 유지)
+
+.hero-content {
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 1rem;
+  
+    h1 {
+      font-size: 3rem;
+      color: #edf2f7;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      opacity: 0; /* 초기에는 숨김 */
+      /* GSAP이 opacity를 제어할 것이므로 transition은 제거 */
+    }
+  
+    h1 span {
+      display: inline-block; /* 각 글자가 span이므로 정렬을 위해 */
+    }
+  
+    p {
+      font-size: 1.25rem;
+      color: #cbd5e0;
+      margin-bottom: 2rem;
+    }
+  
+    // ... (cta-btn 및 scroll-arrow 스타일 유지)
+  }
+  // ... (반응형 설정 유지)

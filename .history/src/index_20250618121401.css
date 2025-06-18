@@ -1,0 +1,50 @@
+/* index.css */
+
+/* Tailwind CSS 지시어 (유지) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 모든 요소에 box-sizing: border-box 적용 (매우 중요!) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* html, body, #root 요소의 기본 마진/패딩 제거 및 뷰포트 100% 높이 확보 */
+html,
+body,
+#root {
+  margin: 0 !important; /* 모든 마진 강제 제거 */
+  padding: 0 !important; /* 모든 패딩 강제 제거 */
+  width: 100% !important; /* 너비 100% 강제 */
+  height: 100% !important; /* 뷰포트 높이 100% 강제 */
+  overflow-x: hidden !important; /* 가로 스크롤 강제 숨김 */
+  scroll-behavior: auto !important; /* GSAP 스크롤 스냅과 충돌 가능성 있는 부드러운 스크롤 기본값 방지 */
+}
+
+/* body에 불필요한 flex 속성 강제 제거 및 스크롤 컨테이너 역할 복원 */
+body {
+  display: block !important; /* body가 flex 컨테이너가 되는 것을 강제 방지 */
+  margin: 0 !important; /* 다시 한번 강제 */
+  padding: 0 !important; /* 다시 한번 강제 */
+  min-width: 320px; /* 유지 */
+}
+
+/* #root에 대한 스타일도 엄격하게 초기화 */
+#root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/*
+    !!! 중요: 여기 아래에 있는 .logo, .card, a, button, h1 등의
+    Tailwind 또는 Vite 기본 템플릿 스타일은 이 index.css 파일에서
+    모두 제거하고, 해당 스타일이 필요한 컴포넌트의 SCSS 파일로 옮기거나
+    Tailwind 클래스로 직접 적용해야 합니다.
+    index.css는 이제 HTML 기본 요소의 완전한 초기화 역할만 해야 합니다.
+*/
